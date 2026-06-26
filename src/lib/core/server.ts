@@ -1,12 +1,12 @@
-import { ApiResponse, Expense } from "../types";
+import { ApiResponse } from "../types";
 
 const baseApiUrl = process.env.NEXT_PUBLIC_BASE_API_URL!;
 
-// Server Mutaion
+// Server Mutation
 export const serverMutation = async (
 	path: string,
 	method: "GET" | "POST" | "PATCH" | "DELETE",
-	data?: Expense,
+	data?: object,
 ): Promise<ApiResponse> => {
 	const res = await fetch(`${baseApiUrl}${path}`, {
 		method,
@@ -16,6 +16,15 @@ export const serverMutation = async (
 		...(data && {
 			body: JSON.stringify(data),
 		}),
+	});
+
+	return res.json();
+};
+
+// Server Query Fetching
+export const serverQuery = async <T>(path: string): Promise<ApiResponse<T>> => {
+	const res = await fetch(`${baseApiUrl}${path}`, {
+		cache: "no-store",
 	});
 
 	return res.json();

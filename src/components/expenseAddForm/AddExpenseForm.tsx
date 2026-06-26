@@ -173,7 +173,7 @@ export default function AddExpenseForm() {
 				<div className="flex flex-col justify-end gap-3 sm:flex-row">
 					<button
 						type="submit"
-						className="h-12 rounded-xl bg-violet-600 px-6 font-medium text-white transition hover:bg-violet-700"
+						className="h-12 rounded-xl bg-violet-600 px-6 font-medium text-white transition-all duration-200 hover:bg-violet-700"
 					>
 						Add Expense
 					</button>

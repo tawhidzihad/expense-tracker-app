@@ -1,27 +1,34 @@
 "use client";
 
-import { expenses } from "@/lib/expense-data";
 import { badgeColors, formatCurrency, formatDate } from "@/lib/expense-utils";
+import type { Expense } from "@/lib/types";
 import { Button, Chip, Table } from "@heroui/react";
-import { Pencil, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+import UpdateExpenseModal from "../updateAndDeleteModal/UpdateExpenseModal";
 import ExpenseCard from "./ExpenseCard";
+import ExpenseEmptyState from "./ExpenseEmptyState";
 import ExpensePagination from "./ExpensePagination";
+
+type ExpenseTableProps = {
+	expenses: Expense[];
+	totalItems: number;
+};
 
 const ITEMS_PER_PAGE = 6;
 
-export default function ExpenseTable() {
+export default function ExpenseTable({
+	expenses,
+	totalItems,
+}: ExpenseTableProps) {
 	const searchParams = useSearchParams();
 
-	const currentPage = Number(searchParams.get("page")) || 1;
+	const currentPage = Number(searchParams.get("page") ?? "1");
 
-	const paginatedExpenses = useMemo(() => {
-		const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-		const endIndex = startIndex + ITEMS_PER_PAGE;
-
-		return expenses.slice(startIndex, endIndex);
-	}, [currentPage]);
+	// Empty state
+	if (expenses.length === 0) {
+		return <ExpenseEmptyState />;
+	}
 
 	return (
 		<>
@@ -52,8 +59,11 @@ export default function ExpenseTable() {
 							</Table.Header>
 
 							<Table.Body>
-								{paginatedExpenses.map((expense, index) => (
-									<Table.Row key={expense.id} id={expense.id}>
+								{expenses.map((expense, index) => (
+									<Table.Row
+										key={expense._id}
+										id={expense._id.toString()}
+									>
 										{/* Serial Number */}
 										<Table.Cell className="font-medium">
 											{(currentPage - 1) * ITEMS_PER_PAGE +
@@ -91,13 +101,14 @@ export default function ExpenseTable() {
 										{/* Actions */}
 										<Table.Cell>
 											<div className="flex items-center justify-center gap-2">
-												<Button
+												{/* <Button
 													isIconOnly
 													size="sm"
 													variant="tertiary"
 												>
 													<Pencil className="size-4" />
-												</Button>
+												</Button> */}
+												<UpdateExpenseModal expense={expense} />
 
 												<Button
 													isIconOnly
@@ -118,9 +129,9 @@ export default function ExpenseTable() {
 
 			{/* For Mobile Card */}
 			<section className="space-y-4 lg:hidden">
-				{paginatedExpenses.map((expense, index) => (
+				{expenses.map((expense, index) => (
 					<ExpenseCard
-						key={expense.id}
+						key={expense._id}
 						expense={expense}
 						serialNumber={(currentPage - 1) * ITEMS_PER_PAGE + index + 1}
 					/>
@@ -128,7 +139,7 @@ export default function ExpenseTable() {
 			</section>
 
 			{/* Pagination */}
-			<ExpensePagination totalItems={expenses.length} />
+			<ExpensePagination totalItems={totalItems} />
 		</>
 	);
 }

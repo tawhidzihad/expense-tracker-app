@@ -20,15 +20,48 @@ export const expenseCategories = [
 
 export type ExpenseCategory = (typeof expenseCategories)[number];
 
-export interface Expense {
+// Add/Edit Expense Form
+export interface ExpenseFormData {
 	title: string;
 	category: ExpenseCategory;
 	amount: number;
 	date: string;
 }
 
-export type ApiResponse = {
+// Expense from Database
+export interface Expense extends ExpenseFormData {
+	_id: string;
+}
+
+// Pagination Types
+export interface Pagination {
+	currentPage: number;
+	totalPages: number;
+	totalExpenses: number;
+	limit: number;
+}
+
+// Summary Types
+export interface CategorySummary {
+	category: ExpenseCategory;
+	totalAmount: number;
+}
+
+export interface ExpenseSummary {
+	totalExpenseAmount: number;
+	categorySummary: CategorySummary[];
+}
+
+// Get Expenses Response
+export interface GetExpensesData {
+	expenses: Expense[];
+	pagination: Pagination;
+	summary: ExpenseSummary;
+}
+
+// Common API Response
+export interface ApiResponse<T = unknown> {
 	success: boolean;
 	message: string;
-	data?: unknown;
-};
+	data?: T;
+}

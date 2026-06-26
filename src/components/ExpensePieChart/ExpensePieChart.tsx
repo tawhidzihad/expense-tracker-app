@@ -1,13 +1,7 @@
 "use client";
 
-import { useMemo } from "react";
+import { CategorySummary } from "@/lib/types";
 import { Legend, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
-
-import type { Expense } from "@/lib/types";
-
-type ExpensePieChartProps = {
-	expenses: Expense[];
-};
 
 const COLORS = [
 	"#7C3AED",
@@ -22,21 +16,43 @@ const COLORS = [
 	"#84CC16",
 ];
 
-export default function ExpensePieChart({ expenses }: ExpensePieChartProps) {
-	const chartData = useMemo(() => {
-		const grouped: Record<string, number> = {};
+type ExpensePieChartProps = {
+	categorySummary: CategorySummary[];
+};
 
-		for (const expense of expenses) {
-			grouped[expense.category] =
-				(grouped[expense.category] || 0) + expense.amount;
-		}
+export default function ExpensePieChart({
+	categorySummary,
+}: ExpensePieChartProps) {
+	const chartData = categorySummary?.map((item, index) => ({
+		...item,
+		fill: COLORS[index % COLORS.length],
+	}));
 
-		return Object.entries(grouped).map(([category, amount], index) => ({
-			category,
-			amount,
-			fill: COLORS[index % COLORS.length],
-		}));
-	}, [expenses]);
+	// Empty state for there is no data
+	if (categorySummary.length === 0) {
+		return (
+			<section className="mx-auto w-full max-w-7xl rounded-2xl border border-default-200 bg-white p-6 shadow-sm">
+				<div className="mb-6">
+					<h2 className="text-2xl font-bold">Expense by Category</h2>
+
+					<p className="mt-1 text-sm text-default-500">
+						Expense distribution across all categories.
+					</p>
+				</div>
+
+				<div className="flex h-87.5 flex-col items-center justify-center rounded-xl border border-dashed border-default-300 bg-default-50 sm:h-105 p-1">
+					<h3 className="text-xl font-semibold text-default-700">
+						No Expense Data Available
+					</h3>
+
+					<p className="mt-2 max-w-sm text-center text-sm text-default-500">
+						Add some expenses to see the category-wise distribution in the
+						pie chart.
+					</p>
+				</div>
+			</section>
+		);
+	}
 
 	return (
 		<section className="mx-auto w-full max-w-7xl rounded-2xl border border-default-200 bg-white p-6 shadow-sm">
@@ -53,7 +69,7 @@ export default function ExpensePieChart({ expenses }: ExpensePieChartProps) {
 					<PieChart>
 						<Pie
 							data={chartData}
-							dataKey="amount"
+							dataKey="totalAmount"
 							nameKey="category"
 							cx="50%"
 							cy="50%"
@@ -67,6 +83,7 @@ export default function ExpensePieChart({ expenses }: ExpensePieChartProps) {
 								name,
 							]}
 						/>
+
 						<Legend />
 					</PieChart>
 				</ResponsiveContainer>
