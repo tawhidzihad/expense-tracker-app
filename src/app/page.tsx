@@ -1,5 +1,9 @@
-import { Button } from "@heroui/react";
+import TotalExpenseCard from "@/components/homepage/TotalExpenseCard";
 
 export default function Home() {
-	return <Button>My Button</Button>;
+	return (
+		<div className="bg-[#f8f9fc] px-4 lg:px-0">
+			<TotalExpenseCard></TotalExpenseCard>
+		</div>
+	);
 }

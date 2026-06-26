@@ -10,8 +10,8 @@ export default function Navbar() {
 	const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
 	return (
-		<nav className="sticky top-0 z-50 border-b border-default-200 bg-white/80 backdrop-blur-xl">
-			<div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+		<nav className="sticky top-0 z-50 backdrop-blur-xl bg-[#f8f9fc]">
+			<div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-0">
 				{/* Left Side */}
 				<div className="flex items-center gap-3">
 					<button
@@ -53,7 +53,8 @@ export default function Navbar() {
 				<div className="border-t bg-white md:hidden">
 					<div className="p-4">
 						<Button
-							className="w-full"
+							variant="outline"
+							className="w-full rounded"
 							onPress={() => setIsMenuOpen(false)}
 						>
 							Add Expense
