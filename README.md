@@ -1,36 +1,231 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💰 Expense Tracker App
 
-## Getting Started
+A modern and responsive **Expense Tracker** web application built with **Next.js**, **TypeScript**, **HeroUI**, and **Tailwind CSS**. Easily manage your daily expenses by adding, updating, deleting, filtering, and visualizing expense data through an interactive pie chart.
 
-First, run the development server:
+---
+
+## 📸 Preview
+
+![Expense Tracker Preview](./public/preview.png)
+
+---
+
+## 🌐 Live Links
+
+### 🖥️ Client
+
+**Live Demo:** https://expense-tracking-app-by-tawhid.vercel.app
+
+### ⚙️ Server
+
+**API Base URL:** https://expense-tracker-server-ruddy.vercel.app/
+
+---
+
+## 📂 Source Code
+
+### Client Repository
+
+https://github.com/tawhidzihad/expense-tracker-app
+
+### Server Repository
+
+https://github.com/tawhidzihad/expense-tracker-app-server
+
+---
+
+# ✨ Features
+
+- ➕ Add new expenses
+- ✏️ Update existing expenses
+- 🗑️ Delete expenses with confirmation dialog
+- 📊 Expense statistics using Recharts Pie Chart
+- 💰 Display total expense amount
+- 🏷️ Filter expenses by category
+- 📄 Server-side pagination
+- 📱 Fully responsive design
+- ⚡ Server Actions for API communication
+- 📝 Form validation with React Hook Form
+- 🎉 Success & error toast notifications
+- 🚫 Custom empty states
+- ⏳ Custom loading animation
+- ❌ Custom 404 page
+- ⚠️ Global error page
+- 🎨 Clean and modern UI using HeroUI
+- 🔄 Automatic UI refresh after CRUD operations
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- HeroUI v3
+
+## Backend Communication
+
+- Next.js Server Actions
+- Fetch API
+
+## Form Validation
+
+- React Hook Form
+
+## Charts
+
+- Recharts
+
+## Icons
+
+- Lucide React
+- React Icons
+
+## Notifications
+
+- React Hot Toast
+
+---
+
+# 📁 Project Structure
+
+```text
+src/
+│
+├── app/
+│   ├── error.tsx
+│   ├── loading.tsx
+│   ├── not-found.tsx
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── components/
+│   ├── expenseAddForm/
+│   ├── expenseFilter/
+│   ├── allExpensesComponents/
+│   ├── totalExpenseCard/
+│   ├── ExpensePieChart/
+│   └── shared/
+│
+├── lib/
+│   ├── api/
+│   ├── core/
+│   ├── expense-utils.ts
+│   └── types.ts
+│
+└── public/
+```
+
+---
+
+# ⚙️ Environment Variables
+
+Create a `.env.local` file in the project root and add the following variable:
+
+```env
+NEXT_PUBLIC_BASE_API_URL=https://expense-tracker-server-ruddy.vercel.app
+```
+
+---
+
+# 🚀 Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/tawhidzihad/expense-tracker-app.git
+```
+
+### Navigate to the project
+
+```bash
+cd expense-tracker-app
+```
+
+### Install dependencies
+
+```bash
+npm install
+```
+
+### Configure environment variables
+
+Create a `.env.local` file:
+
+```env
+NEXT_PUBLIC_BASE_API_URL=https://expense-tracker-server-ruddy.vercel.app
+```
+
+### Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+# 📦 Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+Start development server
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Build for production
 
-## Deploy on Vercel
+```bash
+npm run build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Start production server
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run start
+```
+
+Run ESLint
+
+```bash
+npm run lint
+```
+
+---
+
+# 📱 Responsive Design
+
+The application is fully responsive and optimized for:
+
+- 📱 Mobile
+- 📱 Tablet
+- 💻 Desktop
+
+---
+
+# 🎯 Future Improvements
+
+- User Authentication
+- Expense Search
+- Monthly & Yearly Analytics
+- Export Expenses (CSV/PDF)
+- Multiple Chart Types
+- Dark Mode
+- Dashboard Overview
+- Expense Sorting Options
+
+---
+
+# 👨‍💻 Author
+
+**Md Tawhidul Islam Zihad**
+
+- LinkedIn: https://www.linkedin.com/in/tawhidulislamzihad
