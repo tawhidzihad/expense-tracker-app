@@ -1,3 +1,4 @@
+import ExpenseTable from "@/components/allExpensesComponents/ExpenseTable";
 import AddExpenseForm from "@/components/expenseAddForm/AddExpenseForm";
 import ExpenseFilter from "@/components/expenseFilter/ExpenseFilter";
 import TotalExpenseCard from "@/components/totalExpenseCard/TotalExpenseCard";
@@ -8,6 +9,7 @@ export default function Home() {
 			<TotalExpenseCard></TotalExpenseCard>
 			<AddExpenseForm></AddExpenseForm>
 			<ExpenseFilter></ExpenseFilter>
+			<ExpenseTable></ExpenseTable>
 		</div>
 	);
 }

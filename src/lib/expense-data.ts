@@ -1,0 +1,88 @@
+import type { Expense } from "./types";
+
+export const expenses: Expense[] = [
+	{
+		id: "1",
+		title: "Grocery Shopping",
+		category: "Food",
+		amount: 1250,
+		date: "2026-06-25",
+	},
+	{
+		id: "2",
+		title: "Uber Ride",
+		category: "Transport",
+		amount: 350,
+		date: "2026-06-24",
+	},
+	{
+		id: "3",
+		title: "New Shoes",
+		category: "Shopping",
+		amount: 2500,
+		date: "2026-06-22",
+	},
+	{
+		id: "4",
+		title: "Electricity Bill",
+		category: "Bills",
+		amount: 1800,
+		date: "2026-06-20",
+	},
+	{
+		id: "5",
+		title: "Restaurant",
+		category: "Food",
+		amount: 950,
+		date: "2026-06-18",
+	},
+	{
+		id: "6",
+		title: "Netflix",
+		category: "Subscriptions",
+		amount: 799,
+		date: "2026-06-16",
+	},
+	{
+		id: "7",
+		title: "Medical Checkup",
+		category: "Healthcare",
+		amount: 1500,
+		date: "2026-06-15",
+	},
+	{
+		id: "8",
+		title: "Bus Ticket",
+		category: "Transport",
+		amount: 120,
+		date: "2026-06-14",
+	},
+	{
+		id: "9",
+		title: "Gift for Friend",
+		category: "Gift",
+		amount: 1000,
+		date: "2026-06-12",
+	},
+	{
+		id: "10",
+		title: "Course Purchase",
+		category: "Education",
+		amount: 3000,
+		date: "2026-06-10",
+	},
+	{
+		id: "11",
+		title: "Monthly Rent",
+		category: "Rent",
+		amount: 12000,
+		date: "2026-06-05",
+	},
+	{
+		id: "12",
+		title: "Movie Night",
+		category: "Entertainment",
+		amount: 600,
+		date: "2026-06-03",
+	},
+];
