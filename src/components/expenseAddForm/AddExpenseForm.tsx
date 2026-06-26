@@ -1,13 +1,10 @@
 "use client";
 
+import { addNewExpense } from "@/lib/actions/expenses";
+import { Expense } from "@/lib/types";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-
-type ExpenseFormData = {
-	title: string;
-	amount: number;
-	category: string;
-	date: string;
-};
+import toast from "react-hot-toast";
 
 // can't edit or add any elemnt
 const expenseCategories = [
@@ -31,17 +28,29 @@ const expenseCategories = [
 ] as const;
 
 export default function AddExpenseForm() {
+	const router = useRouter();
+
 	const {
 		register,
 		handleSubmit,
 		reset,
 		formState: { errors },
-	} = useForm<ExpenseFormData>();
+	} = useForm<Expense>();
 
 	// Hanle submit form
-	const onSubmit = (data: ExpenseFormData) => {
-		console.log(data);
-		reset();
+	const onSubmit = async (data: Expense) => {
+		const response = await addNewExpense(data);
+
+		if (!response?.success) {
+			toast.error("Expense add faild");
+			return;
+		}
+
+		if (response?.success) {
+			toast.success(response?.message);
+			reset();
+			router.refresh();
+		}
 	};
 
 	return (

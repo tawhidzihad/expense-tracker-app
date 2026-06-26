@@ -21,9 +21,14 @@ export const expenseCategories = [
 export type ExpenseCategory = (typeof expenseCategories)[number];
 
 export interface Expense {
-	id: string;
 	title: string;
 	category: ExpenseCategory;
 	amount: number;
 	date: string;
 }
+
+export type ApiResponse = {
+	success: boolean;
+	message: string;
+	data?: unknown;
+};
