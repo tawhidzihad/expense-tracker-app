@@ -9,6 +9,7 @@ type ExpenseFormData = {
 	date: string;
 };
 
+// can't edit or add any elemnt
 const expenseCategories = [
 	"Food",
 	"Transport",
@@ -37,6 +38,7 @@ export default function AddExpenseForm() {
 		formState: { errors },
 	} = useForm<ExpenseFormData>();
 
+	// Hanle submit form
 	const onSubmit = (data: ExpenseFormData) => {
 		console.log(data);
 		reset();

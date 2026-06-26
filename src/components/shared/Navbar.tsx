@@ -45,7 +45,7 @@ export default function Navbar() {
 					<Link href={"#add-expense"}>
 						<Button
 							variant="outline"
-							className="w-full rounded"
+							className="w-full rounded-xl"
 							onPress={() => setIsMenuOpen(false)}
 						>
 							Add Expense
@@ -61,7 +61,7 @@ export default function Navbar() {
 						<Link href={"#add-expense"}>
 							<Button
 								variant="outline"
-								className="w-full rounded"
+								className="w-full rounded-xl"
 								onPress={() => setIsMenuOpen(false)}
 							>
 								Add Expense

@@ -4,7 +4,7 @@ import { MdAttachMoney } from "react-icons/md";
 export default function TotalExpenseCard() {
 	return (
 		<div className="border max-w-7xl mx-auto rounded-xl mt-5 bg-white">
-			<div className="flex items-center justify-between px-5 py-5">
+			<div className="flex items-center justify-between gap-5 px-5 py-5">
 				<div>
 					<p className="text-lg font-medium text-default-500">
 						Total Expense
@@ -14,7 +14,7 @@ export default function TotalExpenseCard() {
 						<span className="text-violet-600">
 							<MdAttachMoney />
 						</span>
-						<span>12,850.00</span>
+						<span>12,850</span>
 					</h2>
 				</div>
 
@@ -25,7 +25,7 @@ export default function TotalExpenseCard() {
 						width={240}
 						height={140}
 						priority
-						className="hidden h-auto w-56 object-contain md:block"
+						className="h-auto w-56 object-contain md:block"
 					/>
 				</div>
 			</div>
