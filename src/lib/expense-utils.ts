@@ -37,7 +37,7 @@ export const badgeColors: Record<ExpenseCategory, string> = {
 };
 
 export const formatCurrency = (amount: number): string => {
-	return `৳${amount.toLocaleString("en-BD", {
+	return `$${amount.toLocaleString("en-BD", {
 		minimumFractionDigits: 2,
 		maximumFractionDigits: 2,
 	})}`;
