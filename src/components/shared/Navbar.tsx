@@ -42,16 +42,7 @@ export default function Navbar() {
 
 				{/* Desktop Buttons */}
 				<div className="hidden items-center gap-3 md:flex">
-					<Button className={"rounded"} variant="outline">
-						Add Expense
-					</Button>
-				</div>
-			</div>
-
-			{/* Mobile Menu */}
-			{isMenuOpen && (
-				<div className="border-t bg-white md:hidden">
-					<div className="p-4">
+					<Link href={"#add-expense"}>
 						<Button
 							variant="outline"
 							className="w-full rounded"
@@ -59,6 +50,23 @@ export default function Navbar() {
 						>
 							Add Expense
 						</Button>
+					</Link>
+				</div>
+			</div>
+
+			{/* Mobile Menu */}
+			{isMenuOpen && (
+				<div className="border-t bg-white md:hidden">
+					<div className="p-4">
+						<Link href={"#add-expense"}>
+							<Button
+								variant="outline"
+								className="w-full rounded"
+								onPress={() => setIsMenuOpen(false)}
+							>
+								Add Expense
+							</Button>
+						</Link>
 					</div>
 				</div>
 			)}
