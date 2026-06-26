@@ -1,10 +1,8 @@
 "use client";
 
-import { Button } from "@heroui/react";
-import { Trash2 } from "lucide-react";
-
 import { badgeColors, formatCurrency, formatDate } from "@/lib/expense-utils";
 import type { Expense } from "@/lib/types";
+import DeleteExpenseDialog from "../updateAndDeleteModal/DeleteExpenseDialog";
 import UpdateExpenseModal from "../updateAndDeleteModal/UpdateExpenseModal";
 
 type ExpenseCardProps = {
@@ -54,10 +52,7 @@ export default function ExpenseCard({
 			<div className="mt-6 flex items-center gap-3">
 				<UpdateExpenseModal expense={expense} />
 
-				<Button size="sm" variant="danger" className="flex-1">
-					<Trash2 className="size-4" />
-					Delete
-				</Button>
+				<DeleteExpenseDialog expense={expense} />
 			</div>
 		</div>
 	);

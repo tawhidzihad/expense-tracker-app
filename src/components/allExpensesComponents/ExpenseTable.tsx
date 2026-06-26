@@ -2,9 +2,9 @@
 
 import { badgeColors, formatCurrency, formatDate } from "@/lib/expense-utils";
 import type { Expense } from "@/lib/types";
-import { Button, Chip, Table } from "@heroui/react";
-import { Trash2 } from "lucide-react";
+import { Chip, Table } from "@heroui/react";
 import { useSearchParams } from "next/navigation";
+import DeleteExpenseDialog from "../updateAndDeleteModal/DeleteExpenseDialog";
 import UpdateExpenseModal from "../updateAndDeleteModal/UpdateExpenseModal";
 import ExpenseCard from "./ExpenseCard";
 import ExpenseEmptyState from "./ExpenseEmptyState";
@@ -101,22 +101,9 @@ export default function ExpenseTable({
 										{/* Actions */}
 										<Table.Cell>
 											<div className="flex items-center justify-center gap-2">
-												{/* <Button
-													isIconOnly
-													size="sm"
-													variant="tertiary"
-												>
-													<Pencil className="size-4" />
-												</Button> */}
 												<UpdateExpenseModal expense={expense} />
 
-												<Button
-													isIconOnly
-													size="sm"
-													variant="danger"
-												>
-													<Trash2 className="size-4" />
-												</Button>
+												<DeleteExpenseDialog expense={expense} />
 											</div>
 										</Table.Cell>
 									</Table.Row>

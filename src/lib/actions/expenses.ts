@@ -15,3 +15,8 @@ export const updateExpense = async (
 ): Promise<ApiResponse> => {
 	return serverMutation(`/api/expense/${id}`, "PATCH", data);
 };
+
+// Delete single expense
+export const deleteExpense = async (id: string) => {
+	return serverMutation(`/api/expense/${id}`, "DELETE");
+};
