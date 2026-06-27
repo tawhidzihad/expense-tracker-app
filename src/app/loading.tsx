@@ -3,7 +3,7 @@ export default function Loading() {
 		<div className="flex min-h-screen flex-col items-center justify-center bg-[#f8f9fc] px-4">
 			{/* Wallet */}
 			<div className="relative">
-				<div className="relative h-28 w-36 overflow-hidden rounded-2xl border-4 border-violet-700 bg-linear-to-br from-violet-600 to-purple-700 shadow-2xl">
+				<div className="relative z-50 h-28 w-36 overflow-hidden rounded-2xl border-4 border-violet-700 bg-linear-to-br from-violet-600 to-purple-700 shadow-2xl">
 					{/* Wallet Strap */}
 					<div className="absolute top-6 right-0 h-10 w-8 rounded-l-xl bg-violet-800" />
 
